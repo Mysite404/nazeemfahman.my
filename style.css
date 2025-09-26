@@ -387,8 +387,7 @@ footer {
     }
 
     .image-box {
-        width: 80%; 
-        max-width: 350px;
+        width: 100%; 
         height: auto;
         padding-bottom: 100%; /* Use 1:1 or 4:5 ratio for mobile visibility */
         aspect-ratio: 4/5;
