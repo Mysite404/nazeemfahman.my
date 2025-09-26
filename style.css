@@ -195,13 +195,12 @@ header .container {
 .image-box {
     /* Enforce 4:5 ratio (width:height) - Height is 125% of Width */
     width: auto; 
-    height: 85%; /* Take full height of container */
+    height: 80%; /* Take full height of container */
     aspect-ratio: 4 / 5;
     position: relative;
     background-color: var(--color-dark-grey); /* This is just a backup color */
     border-radius: var(--border-radius-large);
     overflow: hidden;
-    width: 100%;
     object-fit: cover;
     border-radius: var(--border-radius-large);
     display: flex;
@@ -210,7 +209,7 @@ header .container {
 }
 
 .image-box img {
-    height: 80;
+    height: 80%;
     object-fit: cover; 
     border-radius: var(--border-radius-large);
     
@@ -370,8 +369,8 @@ footer {
     }
     
     .image-box {
-        height: 100%; /* Fixed height for better control on tablets */
-        width: 100%; /* 4:5 ratio (450 * 0.8) */
+        height: 80%; /* Fixed height for better control on tablets */
+        width: 80%; /* 4:5 ratio (450 * 0.8) */
     }
 }
 
