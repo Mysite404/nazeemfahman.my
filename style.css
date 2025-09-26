@@ -328,6 +328,7 @@ header .container {
 /* --- Footer --- */
 footer {
     background-color: var(--color-dark-grey);
+    opacity: 20%;
     padding: var(--spacing-small) 0;
     text-align: center;
 }
