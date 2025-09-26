@@ -3,697 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nazeem Fahman - Filmmaker & Designer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --light-green: #A8E6CF;
-            --dark-green: #88c9a1;
-            --very-dark-grey: #1C2526;
-            --black: #000000;
-            --white: #ffffff;
-            --light-grey: #E0E0E0;
-            --glass-bg: rgba(168, 230, 207, 0.08);
-            --glass-border: rgba(255, 255, 255, 0.15);
-            --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: linear-gradient(135deg, var(--very-dark-grey) 0%, var(--black) 100%);
-            color: var(--light-grey);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        h1, h2, h3 {
-            font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            color: var(--white);
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            color: var(--white);
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--light-green);
-            border-radius: 2px;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            color: var(--white);
-        }
-
-        p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            background: var(--glass-bg);
-            color: var(--light-green);
-            border: 1px solid var(--glass-border);
-            border-radius: 50px;
-            font-weight: 500;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            background: rgba(168, 230, 207, 0.15);
-        }
-
-        /* Glass Effect */
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            box-shadow: var(--glass-shadow);
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            background: rgba(28, 37, 38, 0.7);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        nav.scrolled {
-            background: rgba(28, 37, 38, 0.9);
-            padding: 15px 0;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--light-green);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            color: var(--light-grey);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--light-green);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--light-green);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--light-grey);
-        }
-
-        /* Hero Section */
-        #hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1159&q=80');
-            background-size: cover;
-            background-position: center;
-            filter: blur(15px);
-            -webkit-filter: blur(15px);
-            opacity: 0.3;
-            z-index: -1;
-        }
-
-        .hero-content {
-            flex: 1;
-            padding-right: 40px;
-            z-index: 2;
-        }
-
-        .hero-image {
-            position: absolute;
-            top: 100%;
-            right: 5%;
-            transform: translateY(-50%);
-            width: 100%;
-            
-            height: calc(100% * 1.25); /* 4:5 ratio */
-            
-            border-radius: 20px;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .hero-image-placeholder {
-            width: 100%;
-            height: 100%;
-            background: var(--very-dark-grey);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: var(--light-green);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-        }
-
-        /* Experience Section */
-        .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .experience-card {
-            padding: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .experience-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .experience-card i {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--light-green);
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            padding: 30px;
-            transition: all 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-card i {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--light-green);
-        }
-
-        /* Certifications Section */
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .certification-card {
-            padding: 30px;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .certification-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .cert-image {
-            width: 100%;
-            height: 200px;
-            background: var(--very-dark-grey);
-            border-radius: 12px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border: 1px solid var(--glass-border);
-        }
-
-        .cert-image-placeholder {
-            color: var(--light-green);
-            font-size: 1.2rem;
-        }
-
-        /* Contact Section */
-        #contact {
-            text-align: center;
-        }
-
-        .contact-info {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .contact-item i {
-            color: var(--light-green);
-        }
-
-        /* Footer */
-        footer {
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-logo {
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--light-green);
-            margin-bottom: 20px;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links li {
-            margin: 0 15px;
-        }
-
-        .footer-links a {
-            color: var(--light-grey);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--light-green);
-        }
-
-        .copyright {
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-        }
-
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-2 {
-            animation-delay: 0.4s;
-        }
-
-        .delay-3 {
-            animation-delay: 0.6s;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 2.8rem;
-            }
-            
-            h2 {
-                font-size: 2.2rem;
-            }
-            
-            #hero {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 100px;
-            }
-            
-            .hero-content {
-                padding-right: 0;
-                margin-bottom: 40px;
-            }
-            
-            .hero-image {
-                position: relative;
-                top: auto;
-                right: auto;
-                transform: none;
-                width: 300px;
-                height: 375px;
-                margin: 0 auto;
-            }
-            
-            .hero-bg {
-                width: 100%;
-                opacity: 0.2;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: rgba(28, 37, 38, 0.95);
-                backdrop-filter: blur(15px);
-                -webkit-backdrop-filter: blur(15px);
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: all 0.3s ease;
-                z-index: 999;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-            }
-            
-            section {
-                padding: 60px 0;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            .experience-grid,
-            .projects-grid,
-            .certifications-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .hero-image {
-                width: 250px;
-                height: 312px;
-            }
-        }
-    </style>
+    <title>Nazeem Fahman - Filmmaker & Designer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="container nav-container">
-            <div class="logo">Nazeem Fahman</div>
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="nav-links" id="navLinks">
+
+    <div class="background-overlay"></div>
+
+    <header class="ios-glass">
+        <nav class="container">
+            <a href="#hero" class="logo">Nazeem Fahman</a>
+            <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-        </div>
-    </nav>
+            <button class="burger-menu"><i class="fa-solid fa-bars"></i></button>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="hero-bg"></div>
-        <div class="container" style="display: flex; align-items: center; position: relative;">
-            <div class="hero-content fade-in">
+    <main>
+        <section id="hero" class="hero-section container">
+            <div class="hero-content">
                 <h1>Filmmaker & Designer</h1>
-                <p>A passionate filmmaker currently studying for a Diploma in Creative Technology and Video Production. I have strong skills in Photoshop and love editing photos, especially movie posters. I speak Malay, English, and Chinese.</p>
-                <a href="#contact" class="btn">Get in Touch</a>
+                <p>A passionate filmmaker currently studying for a **Diploma in Creative Technology and Video Production**. I have strong skills in **Photoshop** and love editing photos, especially movie posters. I speak **Malay, English, and Chinese**.</p>
+                <a href="#contact" class="ios-glass button">Get In Touch</a>
             </div>
-            <div class="hero-image glass fade-in delay-1">
-                <div class="hero-image-placeholder">
+
+            <div class="hero-image-container">
+                <div class="image-box">
                     <img src="hero.jpg" alt="">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="container">
-            <h2>Experience With</h2>
+        <section id="experience" class="section-padding container">
+            <h2 class="section-title">Experience With</h2>
             <div class="experience-grid">
-                <div class="experience-card glass fade-in">
-                    <i class="fas fa-video"></i>
+
+                <div class="ios-glass card experience-card">
+                    <i class="fa-solid fa-video icon"></i>
                     <h3>Filmmaking</h3>
                     <p>Studying at film school, creating short films, music videos, documentary videos.</p>
                 </div>
-                <div class="experience-card glass fade-in delay-1">
-                    <i class="fas fa-laptop-code"></i>
+
+                <div class="ios-glass card experience-card">
+                    <i class="fa-solid fa-laptop-code icon"></i>
                     <h3>Website Development</h3>
                     <p>Designing and developing websites using HTML, CSS, and JS.</p>
                 </div>
-                <div class="experience-card glass fade-in delay-2">
-                    <i class="fas fa-image"></i>
+
+                <div class="ios-glass card experience-card">
+                    <i class="fa-solid fa-image icon"></i>
                     <h3>Photo Editing</h3>
                     <p>Creating and editing posters with advanced Photoshop skills.</p>
                 </div>
-                <div class="experience-card glass fade-in">
-                    <i class="fas fa-shield-alt"></i>
+
+                <div class="ios-glass card experience-card">
+                    <i class="fa-solid fa-shield-halved icon"></i>
                     <h3>Ethical Hacking</h3>
                     <p>Certified in ethical hacking, ensuring secure digital environments.</p>
                 </div>
-                <div class="experience-card glass fade-in delay-1">
-                    <i class="fas fa-gamepad"></i>
+
+                <div class="ios-glass card experience-card">
+                    <i class="fa-solid fa-gamepad icon"></i>
                     <h3>Game Development</h3>
                     <p>Experienced Minecraft server developer, creating and managing custom servers for engaging multiplayer experiences.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
+        <section id="projects" class="section-padding container">
+            <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
-                <div class="project-card glass fade-in">
-                    <i class="fas fa-film"></i>
+
+                <div class="ios-glass card project-card">
+                    <div class="project-image-placeholder"></div>
                     <h3>Video Project</h3>
                     <p>Video projects created as part of my film school coursework.</p>
                 </div>
-                <div class="project-card glass fade-in delay-1">
-                    <i class="fas fa-globe"></i>
-                    <h3>Websites</h3>
-                    <p>Static websites designed for local businesses marketing campaign.</p>
-                </div>
-                <div class="project-card glass fade-in delay-2">
-                    <i class="fas fa-globe"></i>
-                    <h3>Websites</h3>
-                    <p>Static websites designed for local businesses marketing campaign.</p>
-                </div>
-                <!-- Add more project cards by copying the above structure -->
-            </div>
-        </div>
-    </section>
 
-    <!-- Certifications Section -->
-    <section id="certifications">
-        <div class="container">
-            <h2>Certifications</h2>
+                <div class="ios-glass card project-card">
+                    <div class="project-image-placeholder"></div>
+                    <h3>Websites</h3>
+                    <p>Static websites designed for local businesses marketing campaign.</p>
+                </div>
+
+                <div class="ios-glass card project-card">
+                    <div class="project-image-placeholder"></div>
+                    <h3>Websites</h3>
+                    <p>Static websites designed for local businesses marketing campaign.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="certifications" class="section-padding container">
+            <h2 class="section-title">Certifications</h2>
             <div class="certifications-grid">
-                <div class="certification-card glass fade-in">
-                    <div class="cert-image">
-                        <div class="cert-image-placeholder">Certification Image</div>
-                    </div>
-                    <h3>Certification Title</h3>
-                    <p>Description of the certification and what it represents.</p>
-                </div>
-                <div class="certification-card glass fade-in delay-1">
-                    <div class="cert-image">
-                        <div class="cert-image-placeholder">Certification Image</div>
-                    </div>
-                    <h3>Certification Title</h3>
-                    <p>Description of the certification and what it represents.</p>
-                </div>
-                <div class="certification-card glass fade-in delay-2">
-                    <div class="cert-image">
-                        <div class="cert-image-placeholder">Certification Image</div>
-                    </div>
-                    <h3>Certification Title</h3>
-                    <p>Description of the certification and what it represents.</p>
-                </div>
-                <!-- Add more certification cards by copying the above structure -->
-            </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-info glass fade-in" style="padding: 40px;">
-                <p>A passionate filmmaker and designer with skills in developing static websites, poster editing.</p>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>mohdnazeemfahman@gmail.com</span>
+                <div class="ios-glass card certification-card">
+                    <div class="cert-image-box">
+                        <p>Cert Image</p>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
+                    <div class="cert-content">
+                        <h3>Certified Ethical Hacker</h3>
+                        <p>Gained proficiency in penetration testing, vulnerability assessment, and securing digital environments.</p>
+                    </div>
+                </div>
+
+                <div class="ios-glass card certification-card">
+                    <div class="cert-image-box">
+                        <p>Cert Image</p>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Adobe Photoshop Expert</h3>
+                        <p>Mastery of advanced photo manipulation techniques for commercial and creative poster design.</p>
+                    </div>
+                </div>
+
+                <div class="ios-glass card certification-card">
+                    <div class="cert-image-box">
+                        <p>Cert Image</p>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Diploma in Creative Tech</h3>
+                        <p>Core knowledge in video production, creative workflows, and digital media technologies.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding container">
+            <div class="ios-glass card contact-box">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="tagline">A passionate filmmaker and designer with skills in developing static websites, poster editing.</p>
+                <div class="contact-details">
+                    <div>
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:mohdnazeemfahman@gmail.com">mohdnazeemfahman@gmail.com</a>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-location-dot"></i>
                         <span>Pulau Pinang, Malaysia</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-logo">Nazeem Fahman</div>
-            <ul class="footer-links">
+            <p class="footer-name">Nazeem Fahman</p>
+            <ul class="footer-sections">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -704,50 +170,6 @@
         </div>
     </footer>
 
-    <script>
-        // Navigation scroll effect
-        window.addEventListener('scroll', function() {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        
-        menuToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        const navItems = document.querySelectorAll('.nav-links a');
-        navItems.forEach(item => {
-            item.addEventListener('click', function() {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Fade in animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeInOnScroll = function() {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.style.animationPlayState = 'running';
-                }
-            });
-        };
-        
-        // Check on load and scroll
-        window.addEventListener('load', fadeInOnScroll);
-        window.addEventListener('scroll', fadeInOnScroll);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
