@@ -195,7 +195,7 @@ header .container {
 .image-box {
     /* Enforce 4:5 ratio (width:height) - Height is 125% of Width */
     width: auto; 
-    height: 90%; /* Take full height of container */
+    height: 85%; /* Take full height of container */
     aspect-ratio: 4 / 5;
     position: relative;
     background-color: var(--color-dark-grey); /* This is just a backup color */
