@@ -194,11 +194,11 @@ header .container {
 
 .image-box {
     /* Enforce 4:5 ratio (width:height) - Height is 125% of Width */
+    width: auto; 
     height: 100%; /* Take full height of container */
     aspect-ratio: 4 / 5;
-    opacity: 100%;
     position: relative;
-    background-color: var(--color-dark-grey);
+    background-color: var(--color-dark-grey); /* This is just a backup color */
     border-radius: var(--border-radius-large);
     overflow: hidden;
     width: 100%;
@@ -208,6 +208,19 @@ header .container {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: var(--border-radius-large);
+    
+    /* Ensure opacity is explicitly 1 */
+    opacity: 1; 
+    
+    /* Ensure no color filters are applied */
+    filter: none; 
 }
 
 
