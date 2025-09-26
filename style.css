@@ -197,7 +197,7 @@ header .container {
     width: auto; 
     height: 100%; /* Take full height of container */
     aspect-ratio: 4 / 5;
-    
+    opacity: 100%;
     position: relative;
     background-color: var(--color-dark-grey);
     border-radius: var(--border-radius-large);
