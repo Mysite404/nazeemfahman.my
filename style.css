@@ -202,7 +202,6 @@ header .container {
     border-radius: var(--border-radius-large);
     overflow: hidden;
     width: 100%;
-    height: 100%;
     object-fit: cover;
     border-radius: var(--border-radius-large);
     display: flex;
