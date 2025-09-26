@@ -327,10 +327,14 @@ header .container {
 
 /* --- Footer --- */
 footer {
-    background-color: var(--color-dark-grey);
-    opacity: 20%;
     padding: var(--spacing-small) 0;
     text-align: center;
+    background-color: var(--color-glass-bg); /* Use the transparent white background */
+    backdrop-filter: blur(var(--glass-blur-amount)); /* Apply the blur effect */
+    -webkit-backdrop-filter: blur(var(--glass-blur-amount));
+    border-top: 1px solid var(--color-glass-border);
+    color: var(--color-text-light); 
+
 }
 
 .footer-name {
