@@ -51,10 +51,6 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
-    /* Strong Blur Effect */
-    filter: blur(50px) brightness(0.7);
-    transform: scale(1.1); /* Prevents blurred edges from showing */
 }
 
 /* Base Typography & Structure */
