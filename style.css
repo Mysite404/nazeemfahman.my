@@ -47,7 +47,7 @@ body {
     z-index: -2; /* Behind all content */
     
     /* Placeholder Image (Replace with your actual URL) */
-    background-image: url('https://picsum.photos/1920/1080'); 
+    background-image: url('bg.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
