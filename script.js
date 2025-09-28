@@ -31,3 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Mobile Navigation Toggle (Burger Menu)
+const burger = document.querySelector('.burger-menu');
+const navLinks = document.querySelector('.nav-links');
+
+burger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    // Change icon based on state
+    if (navLinks.classList.contains('active')) {
+        burger.innerHTML = '<i class="fa-solid fa-xmark"></i>'; // 'X' icon for close
+    } else {
+        burger.innerHTML = '<i class="fa-solid fa-bars"></i>'; // Burger icon for open
+    }
+});
