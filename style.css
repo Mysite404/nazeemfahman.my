@@ -405,18 +405,50 @@ footer {
     .nav-links {
         display: none;
         flex-direction: column;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background-color: var(--color-dark-grey);
-        padding: 1rem 0;
-        border-radius: 0 0 var(--border-radius-large) var(--border-radius-large);
-        border-top: 1px solid var(--color-glass-border);
+        position: fixed; /* Use fixed so it covers the screen content */
+        top: 20px; /* Aligned with the header's top margin */
+        right: 20px; /* Align to the right */
+        left: 20px; /* Align to the left */
+        max-width: 90%; /* Limit width */
+        margin: 0 auto; /* Center it horizontally */
+        
+        /* Apply the Glass Card Look */
+        background-color: var(--color-glass-bg); 
+        backdrop-filter: blur(var(--glass-blur-amount));
+        border: 1px solid var(--color-glass-border);
+        border-radius: var(--border-radius-large); /* Use card radius */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Stronger shadow for floating card */
+        
+        padding: 1.5rem; /* Add generous padding inside the menu */
+        border-top: none; /* Remove redundant top border */
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Smooth open/close */
+        
+        /* Start position (Hidden) */
+        opacity: 0;
+        transform: translateY(-20px);
     }
 
     .nav-links.active {
         display: flex;
+        opacity: 1;
+        transform: translateY(0); /* End position (Visible) */
+    }
+    
+    .nav-links li {
+        width: 100%; /* Make list items full width */
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Subtle dividers */
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-links a {
+        padding: 0; /* Remove excess link padding */
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--color-text-light); /* Better contrast for menu items */
     }
 
     .burger-menu {
