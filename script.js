@@ -41,3 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Critical elements (.burger-menu or .nav-links) not found in the DOM.");
     }
 });
+
+.burger-menu {
+    /* ... existing styles ... */
+    z-index: 9999; /* Use a very high number to guarantee visibility/clickability */
+    position: relative;
+}
+header {
+    /* ... existing styles ... */
+    z-index: 1000; 
+}
