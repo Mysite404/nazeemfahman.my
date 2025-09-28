@@ -288,6 +288,7 @@ header .container {
 }
 
 .cert-image-box p {
+    width: 100%;
     position: absolute;
     color: var(--color-text-light);
 }
