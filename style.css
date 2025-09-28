@@ -158,6 +158,8 @@ header .container {
     color: var(--color-light-green);
     font-size: 1.5rem;
     cursor: pointer;
+    z-index: 9999; /* Use a very high number to guarantee visibility/clickability */
+    position: relative;
 }
 
 /* --- Hero Section --- */
@@ -411,6 +413,9 @@ footer {
         left: 20px; /* Align to the left */
         max-width: 90%; /* Limit width */
         margin: 0 auto; /* Center it horizontally */
+        position: fixed; 
+        top: 80px; /* Should be well below the header bar */
+        z-index: 999;
         
         /* Apply the Glass Card Look */
         background-color: var(--color-glass-bg); 
@@ -453,6 +458,8 @@ footer {
 
     .burger-menu {
         display: block;
+        padding: 10px; 
+        margin: -10px;
     }
 
     .footer-sections {
@@ -463,10 +470,22 @@ footer {
         top: 0;
         padding: 1rem var(--spacing-small); /* Adjust padding for mobile header itself */
         border-radius: 0; /* No radius on sticky bar */
+        z-index: 1000;
+        background-color: transparent !important;
+        backdrop-filter: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        top: 0;
+        padding: 1rem 0;
     }
     
     /* Ensure the logo and burger icon have space */
     header .container {
         padding: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 var(--spacing-small); 
+        width: 100%;
     }
 }
