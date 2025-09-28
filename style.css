@@ -205,14 +205,11 @@ header .container {
 }
 
 .image-box img {
+    width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover; /* ESSENTIAL: Ensures the image covers the 4:5 box without distortion */
     border-radius: var(--border-radius-large);
-    
-    /* Ensure opacity is explicitly 1 */
     opacity: 1; 
-    
-    /* Ensure no color filters are applied */
     filter: none; 
 }
 
@@ -381,7 +378,9 @@ footer {
     }
 
     .hero-content {
-        max-width: 100%;
+        max-width: 90%;
+        margin: 0 auto;
+        padding-top: 1.5rem;
         order: 2; /* Content after image on mobile */
     }
 
@@ -399,6 +398,7 @@ footer {
     .image-box {
         width: 100%; 
         height: auto;
+        aspect-ratio: 4/5;
     }
 
     /* Mobile Navigation */
