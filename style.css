@@ -458,4 +458,15 @@ footer {
     .footer-sections {
         flex-wrap: wrap;
     }
+
+    header {
+        top: 0;
+        padding: 1rem var(--spacing-small); /* Adjust padding for mobile header itself */
+        border-radius: 0; /* No radius on sticky bar */
+    }
+    
+    /* Ensure the logo and burger icon have space */
+    header .container {
+        padding: 0;
+    }
 }
