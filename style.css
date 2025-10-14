@@ -93,8 +93,7 @@ a:hover {
     border: 1px solid var(--color-glass-border); /* Subtle border for definition */
     border-radius: var(--border-radius-large);
     box-shadow: 
-        inset 1px 1px 5px rgba(255, 255, 255, 0.2), /* Top-left highlight (Bevel) */
-        0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle outer shadow for depth */
+        0 4px 15px rgba(0, 0, 0, 0.3);
     
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 
@@ -105,8 +104,7 @@ a:hover {
 .ios-glass:hover {
     transform: translateY(-5px); 
     box-shadow: 
-        inset 1px 1px 7px rgba(255, 255, 255, 0.3), /* Slightly stronger highlight on hover */
-        0 8px 20px rgba(0, 0, 0, 0.4); /* More pronounced outer shadow on hover */
+        0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Pseudo-element for the shiny top-left edge */
