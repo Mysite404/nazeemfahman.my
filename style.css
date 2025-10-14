@@ -6,8 +6,8 @@
     --color-text-light: #E0E0E0; /* Light Grey text for readability */
 
     /* iOS Glass Effect Colors */
-    --color-glass-bg: rgba(255, 255, 255, 0.15); /* Very subtle transparent white */
-    --color-glass-border: rgba(168, 230, 207, 0.2); /* Light green border with opacity */
+    --color-glass-bg: rgba(255, 255, 255, 0.25); /* Very subtle transparent white */
+    --color-glass-border: rgba(255, 255, 255, 0.3); /* Light green border with opacity */
     --glass-blur-amount: 18px;
 
     --border-radius-large: 20px; /* iOS-like corner radius */
@@ -89,15 +89,24 @@ a:hover {
     /* Existing glass properties */
     background-color: var(--color-glass-bg);
     backdrop-filter: blur(var(--glass-blur-amount));
-    -webkit-backdrop-filter: blur(var(--glass-blur-amount));
-    border: 1px solid var(--color-glass-border);
+    -webkit-backdrop-filter: blur(var(--glass-blur-amount)); 
+    border: 1px solid var(--color-glass-border); /* Subtle border for definition */
     border-radius: var(--border-radius-large);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+    box-shadow: 
+        inset 1px 1px 5px rgba(255, 255, 255, 0.2), /* Top-left highlight (Bevel) */
+        0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle outer shadow for depth */
+    
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 
-    /* Add relative positioning for pseudo-elements */
-    position: relative;
-    overflow: hidden; /* Crucial to clip the shine to the card's rounded corners */
+    position: relative; /* Keep this for future potential use, but not strictly needed for this bevel */
+    overflow: hidden;
+}
+
+.ios-glass:hover {
+    transform: translateY(-5px); 
+    box-shadow: 
+        inset 1px 1px 7px rgba(255, 255, 255, 0.3), /* Slightly stronger highlight on hover */
+        0 8px 20px rgba(0, 0, 0, 0.4); /* More pronounced outer shadow on hover */
 }
 
 /* Pseudo-element for the shiny top-left edge */
