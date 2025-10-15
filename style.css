@@ -114,14 +114,7 @@ a:hover {
         0 8px 20px rgba(0, 0, 0, 0.4); 
 }
 
-/* Pseudo-element for the shiny top-left edge */
-.ios-glass::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+
     
     /* Subtle gradient for the shine effect - top-left to center */
     background: radial-gradient(circle at 10% 10%, rgba(168, 230, 207, 0.3) 0%, transparent 25%);
@@ -132,14 +125,7 @@ a:hover {
     pointer-events: none; /* Allows clicks to pass through */
 }
 
-/* Pseudo-element for the shiny bottom-right edge */
-.ios-glass::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
+
     
     /* Subtle gradient for the shine effect - bottom-right to center */
     background: radial-gradient(circle at 90% 90%, rgba(168, 230, 207, 0.2) 0%, transparent 25%);
