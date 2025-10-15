@@ -114,27 +114,6 @@ a:hover {
         0 8px 20px rgba(0, 0, 0, 0.4); 
 }
 
-
-    
-    /* Subtle gradient for the shine effect - top-left to center */
-    background: radial-gradient(circle at 10% 10%, rgba(168, 230, 207, 0.3) 0%, transparent 25%);
-    /* Adjust color and percentage for desired intensity */
-    
-    /* Ensure it's behind the content */
-    z-index: 0; 
-    pointer-events: none; /* Allows clicks to pass through */
-}
-
-
-    
-    /* Subtle gradient for the shine effect - bottom-right to center */
-    background: radial-gradient(circle at 90% 90%, rgba(168, 230, 207, 0.2) 0%, transparent 25%);
-    /* Slightly less intense than top-left for depth */
-    
-    z-index: 0;
-    pointer-events: none;
-}
-
 .card:hover, .button:hover {
     /* Smooth subtle lift and shadow change on hover */
     transform: translateY(-5px); 
