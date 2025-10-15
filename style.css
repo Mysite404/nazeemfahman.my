@@ -104,6 +104,9 @@ a:hover {
 
 .ios-glass:hover {
     transform: translateY(-5px); 
+    box-shadow: 
+        inset 1px 1px 5px rgba(255, 255, 255, 0.2), /* <-- SHINY BEVEL EFFECT */
+        0 4px 15px rgba(0, 0, 0, 0.3);
     
     /* Ensure the bevel is slightly stronger on hover */
     box-shadow: 
