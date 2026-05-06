@@ -330,9 +330,7 @@ footer {
 }
 
 /* Hover effect to pause the slider so people can look at photos */
-.marquee-track:hover {
-    animation-play-state: paused;
-}
+
 
 /* The Animation Keyframes */
 @keyframes scroll-marquee {
