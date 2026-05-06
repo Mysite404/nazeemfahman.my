@@ -3,66 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nazeem Fahman</title>
+    <title>About | Nazeem Fahman</title>
     <link rel="stylesheet" href="/style.css">
-    <!-- Using Inter for that clean, Apple-like sans-serif feel -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link href="assets/img/logo.png" rel="icon" media="(prefers-color-scheme: light)">
-    <link href="assets/img/logowhite.png" rel="icon" media="(prefers-color-scheme: dark)">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- Minimalist Nav -->
     <nav>
-        <div class="logo">Film Director</div>
+        <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">Film Director</a></div>
         <div class="nav-links">
-            <a href="#work">Work</a>
-            <a href="#contact">Contact</a>
+            <a href="index.html#work">Work</a>
+            <a href="about.html">About</a>
+            <a href="index.html#contact">Contact</a>
         </div>
     </nav>
 
-    <!-- Massive Hero Section -->
-    <section class="hero">
-        <div class="hero-text reveal">
-            <h3>Nazeem Fahman is a film director crafting high-impact visual narratives, connecting audiences through soulful visuals that not everyone gets to experience.</h3>
-
-        </div>
-        <div class="scroll-indicator">Scroll</div>
+    <!-- Massive Typography About Section -->
+    <section class="about-hero reveal active">
+        <h1 class="about-statement">
+            Nazeem Fahman is a film director crafting high-impact visual narratives, connecting audiences through soulful visuals that not everyone gets to experience.
+        </h1>
     </section>
 
-    <!-- Edge-to-Edge Featured Project -->
-    <section id="work" class="featured-project">
-        <div class="project-image reveal" style="background-image: url('assets/img/sementaraada.png');">
-            <!-- Replace URL with a high-res still from your films -->
+    <!-- Auto Sliding Image Marquee -->
+    <section class="image-marquee reveal active">
+        <div class="marquee-track">
+            <!-- First Set of Images -->
+            <div class="marquee-image" style="background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop');"></div>
+            <div class="marquee-image" style="background-image: url('https://images.unsplash.com/photo-1588661621245-e1194ab5f25a?q=80&w=800&auto=format&fit=crop');"></div>
+            <div class="marquee-image" style="background-image: url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=800&auto=format&fit=crop');"></div>
+            <div class="marquee-image" style="background-image: url('https://images.unsplash.com/photo-1594492723653-5d519b7a4214?q=80&w=800&auto=format&fit=crop');"></div>
+            
+            <!-- Second Set of Images (Exact Duplicates) to create the seamless infinite loop -->
+            <div class="marquee-image" style="background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop');"></div>
+            <div class="marquee-image" style="background-image: url('https://images.unsplash.com/photo-1588661621245-e1194ab5f25a?q=80&w=800&auto=format&fit=crop');"></div>
+            <div class="marquee-image" style="background-image: url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=800&auto=format&fit=crop');"></div>
+            <div class="marquee-image" style="background-image: url('https://images.unsplash.com/photo-1594492723653-5d519b7a4214?q=80&w=800&auto=format&fit=crop');"></div>
         </div>
-        <div class="project-details reveal">
-            <h2>SEMENTARA ADA</h2>
-            <div class="project-meta">
-                <span>Narrative Film, Short Film</span>
-                <span>Praesto Productions</span>
-            </div>
-            <a href="https://www.youtube.com/watch?v=FnDBMySyzbg" class="view-btn">Watch Film</a>
-        </div>
-    </section>
-
-    <!-- Secondary Project -->
-    <section class="featured-project alternate">
-        <div class="project-image reveal" style="background-image: url('assets/img/warisangayong.png');">
-        </div>
-        <div class="project-details reveal">
-            <h2>Warisan Gayong: Seni, Jiwa dan Maruah</h2>
-            <div class="project-meta">
-                <span>Short Documentary</span>
-                <span>Praesto Productions</span>
-            </div>
-            <a href="#" class="view-btn">View Project</a>
-        </div>
-    </section>
-
-    <!-- High-End Contact Section -->
-    <section id="contact" class="contact-section reveal">
-        <h2 class="massive-text">LET'S<br>TALK.</h2>
-        <a href="mailto:mohdnazeemfahman@gmail.com" class="email-link">mohdnazeemfahman@gmail.com</a>
     </section>
 
     <!-- Modern Premium Footer -->
@@ -75,15 +53,14 @@
                 <div class="footer-column">
                     <h4>SITEMAP</h4>
                     <ul>
-                        <li><a href="#work">Works</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="index.html#work">Works</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h4>SOCIAL</h4>
                     <ul>
-                        <!-- Replace the # with your actual profile links -->
                         <li><a href="#" target="_blank">Instagram</a></li>
                         <li><a href="#" target="_blank">Tiktok</a></li>
                         <li><a href="#" target="_blank">Vimeo</a></li>
