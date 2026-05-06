@@ -95,10 +95,14 @@ nav {
 }
 
 .scroll-indicator {
+    /* REMOVE position: absolute, left, and bottom if they are there! */
+    position: relative; /* Keeps it in the normal document flow */
+    margin-top: 20px; /* Adds a little breathing room above it */
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--text-secondary);
+    animation: pulse 2s infinite; /* Keeps that nice fading animation */
 }
 
 /* Mobile Fix for New Hero Layout */
