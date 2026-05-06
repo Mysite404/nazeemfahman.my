@@ -96,7 +96,7 @@ nav {
 
 .scroll-indicator {
     /* REMOVE position: absolute, left, and bottom if they are there! */
-    position: relative; /* Keeps it in the normal document flow */
+    position: absolute, left; 
     margin-top: 20px; /* Adds a little breathing room above it */
     font-size: 0.75rem;
     text-transform: uppercase;
