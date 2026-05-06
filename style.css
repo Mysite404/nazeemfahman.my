@@ -282,3 +282,71 @@ footer {
         margin-top: 40px;
     }
 }
+
+/* =========================================
+   About Page Specific Styles
+   ========================================= */
+
+/* Hero Text Section */
+.about-hero {
+    padding: 25vh 5vw 10vh; /* Pushes text down nicely from nav */
+    max-width: 1400px;
+}
+
+.about-statement {
+    font-size: clamp(2.5rem, 5vw, 5.5rem); /* Scales beautifully based on screen size */
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+/* Auto-Sliding Image Marquee */
+.image-marquee {
+    width: 100%;
+    overflow: hidden;
+    padding: 5vh 0 10vh 0; /* Space above and below slider */
+    background: var(--bg-color);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    /* 30s is the speed. Lower = faster, Higher = slower */
+    animation: scroll-marquee 30s linear infinite; 
+}
+
+.marquee-image {
+    width: 400px;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px; /* Slight rounding for a premium feel */
+    flex-shrink: 0; /* Prevents images from squishing */
+}
+
+/* Hover effect to pause the slider so people can look at photos */
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+/* The Animation Keyframes */
+@keyframes scroll-marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Scrolls exactly half the width (which is one full set of images + gaps) */
+        transform: translateX(calc(-50% - 15px)); 
+    }
+}
+
+/* Mobile Adjustments for Slider */
+@media screen and (max-width: 768px) {
+    .marquee-image {
+        width: 250px;
+        height: 350px;
+    }
+}
