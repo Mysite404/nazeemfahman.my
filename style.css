@@ -1,535 +1,188 @@
-/* --- Variables & System Fonts --- */
-:root {
-    --color-dark-grey: #1C2526; /* Very Dark Grey/Black */
-    --color-black: #000000;
-    --color-light-green: #A8E6CF; /* Light Green for accents */
-    --color-text-light: #E0E0E0; /* Light Grey text for readability */
-
-    /* iOS Glass Effect Colors */
-    --color-glass-bg: rgba(255, 255, 255, 0.25); /* Very subtle transparent white */
-    --color-glass-border: rgba(255, 255, 255, 0.3); /* Light green border with opacity */
-    --glass-blur-amount: 18px;
-
-    --border-radius-large: 20px; /* iOS-like corner radius */
-    --transition-speed: 0.3s;
-    --spacing-larg
-    
-    e: 6rem;
-    --spacing-medium: 3rem;
-    --spacing-small: 1.5rem;
-}
-
-
+/* Core Reset and Variables */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+:root {
+    --bg-color: #000000;
+    --text-primary: #f5f5f7; /* Apple's off-white */
+    --text-secondary: #86868b;
 }
 
-body {
-    /* Use System Fonts for iOS aesthetic */
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    background-color: var(--color-dark-grey);
-    color: var(--color-text-light);
-    line-height: 1.6;
-    min-height: 100vh;
-    position: relative; /* Needed for background overlay positioning */
+body, html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
-/* --- Global Background with Blur Placeholder --- */
-.background-overlay {
+/* Minimal Navigation */
+nav {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    z-index: -2; /* Behind all content */
-    
-    /* Placeholder Image (Replace with your actual URL) */
-    background-image: url('assets/img/bg.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* Base Typography & Structure */
-a {
-    color: var(--color-light-green);
-    text-decoration: none;
-    transition: all var(--transition-speed) ease;
-}
-
-a:hover {
-    color: #f7fffa; /* Brighter white on hover for contrast */
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-small);
-}
-
-.section-padding {
-    padding: var(--spacing-large) 0;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: var(--spacing-medium);
-    font-weight: 700;
-}
-
-/* --- New: Shiny Corner Edges Effect for Cards --- */
-.ios-glass {
-    /* Existing glass properties */
-    background-color: var(--color-glass-bg);
-    backdrop-filter: blur(var(--glass-blur-amount));
-    -webkit-backdrop-filter: blur(var(--glass-blur-amount)); 
-    border: 1px solid var(--color-glass-border); /* Subtle border for definition */
-    border-radius: var(--border-radius-large);
-    box-shadow: 
-        inset 1px 1px 5px rgba(255, 255, 255, 0.2), /* <-- SHINY BEVEL EFFECT */
-        0 4px 15px rgba(0, 0, 0, 0.3);
-    
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-
-    position: relative; /* Keep this for future potential use, but not strictly needed for this bevel */
-    overflow: hidden;
-}
-
-.ios-glass:hover {
-    transform: translateY(-5px); 
-    box-shadow: 
-        inset 1px 1px 5px rgba(255, 255, 255, 0.2), /* <-- SHINY BEVEL EFFECT */
-        0 4px 15px rgba(0, 0, 0, 0.3);
-    
-    /* Ensure the bevel is slightly stronger on hover */
-    box-shadow: 
-        inset 1px 1px 7px rgba(255, 255, 255, 0.3), /* Stronger Bevel on Hover */
-        0 8px 20px rgba(0, 0, 0, 0.4); 
-}
-
-.card:hover, .button:hover {
-    /* Smooth subtle lift and shadow change on hover */
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
-}
-
-/* Style for Glass Buttons/Links */
-.button {
-    display: inline-block;
-    padding: 0.75rem 1.75rem;
-    font-weight: 600;
-    text-align: center;
-    cursor: pointer;
-    
-    /* FULL GLASS EFFECT */
-    background-color: rgba(255, 255, 255, 0.05); /* Very light background */
-    backdrop-filter: blur(var(--glass-blur-amount)); /* Inherits from ios-glass class */
-    border: 1px solid var(--color-light-green); /* Sharp light green outline */
-    border-radius: 12px;
-    
-    transition: all var(--transition-speed) ease;
-    
-    transition: all var(--transition-speed) ease;
-}
-.button:hover {
-    /* Subtly increase visibility on hover */
-    background-color: rgba(168, 230, 207, 0.15); /* Slightly more visible green tint on hover */
-    transform: none; /* Keep button from lifting to maintain click feel */
-}
-
-/* --- Header and Navigation --- */
-header {
-    position: sticky;
-    top: 20px; /* Floating header, 20px from top */
-    z-index: 1000;
-    padding: 1rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-header .container {
-    padding: 0; /* Remove container padding inside header */
+    padding: 30px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    mix-blend-mode: difference; /* Keeps nav visible over any background */
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: var(--color-light-green);
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: var(--spacing-small);
+.nav-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    margin-left: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: opacity 0.3s;
 }
 
-.burger-menu {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--color-light-green);
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 9999; /* Use a very high number to guarantee visibility/clickability */
-    position: relative;
+.nav-links a:hover {
+    opacity: 0.6;
 }
 
-/* --- Hero Section --- */
-.hero-section {
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-medium);
-    padding-top: var(--spacing-medium);
-}
-
-.hero-content {
-    flex: 1;
-    max-width: 50%;
-}
-
-.hero-content h1 {
-    font-size: 4rem;
-    color: var(--color-text-light);
-}
-
-/* 1. Hero Image Container (Max size, stick to right, 4:5) */
-.hero-image-container {
-    height: calc(100vh - 40px); /* Fill screen height minus some margin */
-    display: flex;
-    align-items: stretch;
-    justify-content: flex-end;
-    margin-right: -40px; /* Overhang to the edge of the screen */
-}
-
-.image-box {
-    /* Enforce 4:5 ratio (width:height) - Height is 125% of Width */
-    width: auto; 
-    height: 80%; /* Take full height of container */
-    aspect-ratio: 4 / 5;
-    position: relative;
-    background-color: var(--color-dark-grey); /* This is just a backup color */
-    border-radius: var(--border-radius-large);
-    overflow: hidden;
-    object-fit: cover;
-    border-radius: var(--border-radius-large);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* ESSENTIAL: Ensures the image covers the 4:5 box without distortion */
-    border-radius: var(--border-radius-large);
-    opacity: 1; 
-    filter: none; 
-}
-
-
-/* --- Experience Section (Grid) --- */
-.experience-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: var(--spacing-medium);
-    padding: 0 5%;
-}
-
-.experience-card {
-    padding: var(--spacing-medium) var(--spacing-small);
-    text-align: center;
-    min-height: 220px;
+/* Massive Hero Section */
+.hero {
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-}
-
-.experience-card .icon {
-    font-size: 2.5rem;
-    color: var(--color-light-green);
-    margin-bottom: 0.75rem;
-}
-
-/* --- Projects Section (Horizontal Cards) --- */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-medium);
-}
-
-.project-card {
-    padding: var(--spacing-small);
-}
-
-.project-image-placeholder {
-    width: 100%;
-    padding-top: 65%; /* Universal ratio placeholder (approx. 16:10) */
-    background-color: var(--color-dark-grey);
-    border-radius: 12px;
-    margin-bottom: 1rem;
-    border: 1px solid var(--color-glass-border);
-}
-
-/* --- Certifications Section --- */
-.certifications-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-medium);
-}
-
-.certification-card {
-    padding: var(--spacing-medium);
-    text-align: center;
-}
-
-.cert-image-box {
-    width: 100%; /* Take full width of the card's content area */
-    max-width: 250px; /* NEW: Set a maximum width for the image box */
-    height: 180px; /* NEW: Set a fixed, controlled height for the cert area */
-    margin: 0 auto 1rem; /* Center and add bottom margin */
-    
+    padding: 0 5vw;
     position: relative;
-    background-color: var(--color-dark-grey); /* Placeholder background */
-    border-radius: 12px; /* Slightly less rounded than the card */
-    display: flex; /* Helps center any inner content */
-    align-items: center;
-    justify-content: center;
-    overflow: hidden; /* Crucial to clip the image to the border-radius */
-    border: 1px dashed var
 }
 
-.cert-image-box p {
-    width: 100%;
-    position: absolute;
-    color: var(--color-text-light);
+.hero h1 {
+    font-size: clamp(4rem, 12vw, 12rem); /* Scales hugely based on screen size */
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.04em; /* Tight tracking for that modern look */
+    margin: 0;
 }
 
-
-/* --- Contact Section --- */
-.contact-box {
+.hero p {
+    margin-top: 30px;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    color: var(--text-secondary);
     max-width: 600px;
-    margin: 0 auto;
-    padding: var(--spacing-medium);
-    text-align: center;
+    font-weight: 400;
 }
 
-.contact-box .tagline {
-    margin-bottom: var(--spacing-medium);
-    opacity: 0.9;
-}
-
-.contact-details div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 10px;
-}
-
-.contact-details i {
-    color: var(--color-light-green);
-    font-size: 1.2rem;
-}
-
-/* --- Footer --- */
-footer {
-    padding: var(--spacing-small) 0;
-    text-align: center;
-    background-color: var(--color-glass-bg); /* Use the transparent white background */
-    backdrop-filter: blur(var(--glass-blur-amount)); /* Apply the blur effect */
-    -webkit-backdrop-filter: blur(var(--glass-blur-amount));
-    border-top: 1px solid var(--color-glass-border);
-    color: var(--color-text-light); 
-
-}
-
-.footer-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-text-light);
-    margin-bottom: 0.5rem;
-}
-
-.footer-sections {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-small);
-    margin-bottom: 1rem;
-}
-
-.copyright {
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 5vw;
     font-size: 0.9rem;
-    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    animation: pulse 2s infinite;
 }
 
-/* --- Responsive Adjustments --- */
-@media (max-width: 1024px) {
-    .hero-section {
-        min-height: 80vh;
-    }
-
-    .hero-image-container {
-        /* Reduce margin to prevent horizontal scroll on smaller screens */
-        margin-right: 0;
-        max-width: 300px; /* Clamp size */
-        height: auto;
-    }
-    
-    .image-box {
-        height: 80%; /* Fixed height for better control on tablets */
-        width: 80%; /* 4:5 ratio (450 * 0.8) */
-    }
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
 }
 
-
-@media (max-width: 900px) {
-    .hero-section {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 4rem;
-        min-height: unset;
-    }
-
-    .hero-content {
-        max-width: 90%;
-        margin: 0 auto;
-        padding-top: 1.5rem;
-        order: 2; /* Content after image on mobile */
-    }
-
-    .hero-content h1 {
-        font-size: 3rem;
-    }
-
-    .hero-image-container {
-        order: 1; /* Image first on mobile */
-        justify-content: center;
-        margin-right: 0;
-        height: auto; /* Allow height to collapse */
-    }
-
-    .image-box {
-        width: 100%; 
-        height: auto;
-        aspect-ratio: 4/5;
-    }
-
-    /* Mobile Navigation */
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: fixed; /* Use fixed so it covers the screen content */
-        top: 20px; /* Aligned with the header's top margin */
-        right: 20px; /* Align to the right */
-        left: 20px; /* Align to the left */
-        max-width: 90%; /* Limit width */
-        margin: 0 auto; /* Center it horizontally */
-        position: fixed; 
-        top: 80px; /* Should be well below the header bar */
-        z-index: 999;
-        
-        /* Apply the Glass Card Look */
-        background-color: var(--color-glass-bg); 
-        backdrop-filter: blur(var(--glass-blur-amount));
-        border: 1px solid var(--color-glass-border);
-        border-radius: var(--border-radius-large); /* Use card radius */
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Stronger shadow for floating card */
-        
-        padding: 1.5rem; /* Add generous padding inside the menu */
-        border-top: none; /* Remove redundant top border */
-        transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Smooth open/close */
-        
-        /* Start position (Hidden) */
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    .nav-links.active {
-        display: flex;
-        opacity: 1;
-        transform: translateY(0); /* End position (Visible) */
-    }
-    
-    .nav-links li {
-        width: 100%; /* Make list items full width */
-        padding: 0.5rem 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Subtle dividers */
-    }
-    
-    .nav-links li:last-child {
-        border-bottom: none;
-    }
-    
-    .nav-links a {
-        padding: 0; /* Remove excess link padding */
-        font-size: 1.1rem;
-        font-weight: 500;
-        color: var(--color-text-light); /* Better contrast for menu items */
-    }
-
-    .burger-menu {
-        display: block;
-        padding: 10px; 
-        margin: -10px;
-    }
-
-    .footer-sections {
-        flex-wrap: wrap;
-    }
-
-    header {
-        top: 0;
-        padding: 1rem var(--spacing-small); /* Adjust padding for mobile header itself */
-        border-radius: 0; /* No radius on sticky bar */
-        z-index: 1000;
-        background-color: transparent !important;
-        backdrop-filter: none !important;
-        border: none !important;
-        box-shadow: none !important;
-        top: 0;
-        padding: 1rem 0;
-    }
-    
-    /* Ensure the logo and burger icon have space */
-    header .container {
-        padding: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 var(--spacing-small); 
-        width: 100%;
-    }
-
-    .certifications-grid {
-        /* Ensure the cards stack nicely on mobile */
-        grid-template-columns: 1fr; 
-        padding: 0 var(--spacing-small);
-    }
-    
-    .certification-card {
-        padding: var(--spacing-medium);
-    }
-
+/* Edge-to-Edge Project Layout */
+.featured-project {
+    padding: 15vh 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
-.cert-image-box img {
-    /* Use 'contain' to ensure the whole image is visible, 
-       or 'cover' if you prefer it to fill the box (and possibly crop) */
-    object-fit: contain; /* The best choice for logos and certificates */
+.project-image {
     width: 100%;
-    height: 100%;
-    /* Keep the image corners sharp, as the box handles the radius */
-    border-radius: 0; 
-    opacity: 1; 
-    filter: none;
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+}
+
+.project-details h2 {
+    font-size: clamp(3rem, 6vw, 6rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 15px;
+}
+
+.project-meta {
+    display: flex;
+    gap: 20px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.view-btn {
+    display: inline-block;
+    padding: 18px 40px;
+    border: 1px solid var(--text-primary);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px; /* Pill shape is very modern */
+    transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-color);
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 20vh 5vw;
+    text-align: center;
+}
+
+.massive-text {
+    font-size: clamp(5rem, 15vw, 15rem);
+    font-weight: 800;
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    margin-bottom: 40px;
+}
+
+.email-link {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.email-link:hover {
+    color: var(--text-primary);
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Scroll Reveal Animation Classes */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); /* Premium easing curve */
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }

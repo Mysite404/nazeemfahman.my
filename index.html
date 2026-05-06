@@ -3,174 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nazeem Fahman | Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+    <title>Nazeem Fahman</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Using Inter for that clean, Apple-like sans-serif feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="background-overlay"></div>
+    <!-- Minimalist Nav -->
+    <nav>
+        <div class="logo">Film Director</div>
+        <div class="nav-links">
+            <a href="#work">Work</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
-    <header class="ios-glass">
-        <nav class="container">
-            <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="burger-menu"><i class="fa-solid fa-bars"></i></button>
-        </nav>
-    </header>
+    <!-- Massive Hero Section -->
+    <section class="hero">
+        <div class="hero-text reveal">
+            <h1>NAZEEM</h1>
+            <h1>FAHMAN</h1>
+            <p>Film Director crafting high-impact visual narratives.</p>
+        </div>
+        <div class="scroll-indicator">Scroll</div>
+    </section>
 
-    <main>
-        <section id="hero" class="hero-section container">
-            <div class="hero-content">
-                <h1>Nazeem Fahman</h1>
-                <p>A passionate filmmaker currently studying for a Diploma in Creative Digital Technology and Video Production. I have strong skills in Photoshop and love editing photos, especially movie posters. I speak Malay, English, and Chinese.</p>
-                <br><a href="#contact" class="ios-glass button">Get In Touch</a> <br> <br> <a href="assets/pdf/ResumeNazeemFahman.pdf" class="ios-glass button">CV</a>
+    <!-- Edge-to-Edge Featured Project -->
+    <section id="work" class="featured-project">
+        <div class="project-image reveal" style="background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=2000&auto=format&fit=crop');">
+            <!-- Replace URL with a high-res still from your films -->
+        </div>
+        <div class="project-details reveal">
+            <h2>SEMENTARA ADA</h2>
+            <div class="project-meta">
+                <span>Short Film</span>
+                <span>Praesto Productions</span>
             </div>
+            <a href="#" class="view-btn">Watch Film</a>
+        </div>
+    </section>
 
-            <div class="hero-image-container">
-                <div class="image-box">
-                    <img width="100%" style="opacity: 100%;" src="assets/img/hero.png" alt="Nazeemhensem">
-                </div>
+    <!-- Secondary Project -->
+    <section class="featured-project alternate">
+        <div class="project-image reveal" style="background-image: url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2000&auto=format&fit=crop');">
+        </div>
+        <div class="project-details reveal">
+            <h2>TACTICAL VISION</h2>
+            <div class="project-meta">
+                <span>Commercial</span>
+                <span>Director of Photography</span>
             </div>
-        </section>
+            <a href="#" class="view-btn">View Project</a>
+        </div>
+    </section>
 
-        <section id="experience" class="section-padding container">
-            <h2 class="section-title">Experience With</h2>
-            <div class="experience-grid">
-
-                <div class="ios-glass card experience-card">
-                    <i class="fa-solid fa-video icon"></i>
-                    <h3>Filmmaking</h3>
-                    <p>Studying at film school, creating short films, music videos, documentary videos.</p>
-                </div>
-
-                <div class="ios-glass card experience-card">
-                    <i class="fa-solid fa-laptop-code icon"></i>
-                    <h3>Website Development</h3>
-                    <p>Designing and developing websites using HTML, CSS, and JS.</p>
-                </div>
-
-                <div class="ios-glass card experience-card">
-                    <i class="fa-solid fa-image icon"></i>
-                    <h3>Photo Editing</h3>
-                    <p>Creating and editing posters with advanced Photoshop skills.</p>
-                </div>
-
-                <div class="ios-glass card experience-card">
-                    <i class="fa-solid fa-shield icon"></i>
-                    <h3>Ethical Hacking</h3>
-                    <p>Certified in ethical hacking, ensuring secure digital environments.</p>
-                </div>
-
-                <div class="ios-glass card experience-card">
-                    <i class="fa-solid fa-gamepad icon"></i>
-                    <h3>Game Development</h3>
-                    <p>Experienced Minecraft server developer, creating and managing custom servers for engaging multiplayer experiences.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="section-padding container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-
-                <div class="ios-glass card project-card">
-                    <div class="project-image-placeholder"></div>
-                    <h3>Video Project</h3>
-                    <p>Video projects created as part of my film school coursework.</p>
-                </div>
-
-                <div class="ios-glass card project-card">
-                    <div class="project-image-placeholder"></div>
-                    <h3>Websites</h3>
-                    <p>Static websites designed for local businesses marketing campaign.</p>
-                </div>
-
-                <div class="ios-glass card project-card">
-                    <div class="project-image-placeholder"></div>
-                    <h3>Websites</h3>
-                    <p>Static websites designed for local businesses marketing campaign.</p>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="certifications" class="section-padding container">
-            <h2 class="section-title">Certifications</h2>
-            <div class="certifications-grid">
-
-                <div class="ios-glass card certification-card">
-                    <div class="cert-image-box">
-                        <img src="assets/img/sijil1.jpg" alt="">
-                    </div>
-                    <div class="cert-content">
-                        <h3>Certified Ethical Hacker</h3>
-                        <p>Gained proficiency in penetration testing, vulnerability assessment, and securing digital environments.</p>
-                    </div>
-                </div>
-
-                <div class="ios-glass card certification-card">
-                    <div class="cert-image-box">
-                        <img src="assets/img/sijil2.jpg" alt="">
-                    </div>
-                    <div class="cert-content">
-                        <h3>Adobe Photoshop Expert</h3>
-                        <p>Mastery of advanced photo manipulation techniques for commercial and creative poster design.</p>
-                    </div>
-                </div>
-
-                <div class="ios-glass card certification-card">
-                    <div class="cert-image-box">
-                        <p>Cert Image</p>
-                    </div>
-                    <div class="cert-content">
-                        <h3>Diploma in Creative Tech</h3>
-                        <p>Core knowledge in video production, creative workflows, and digital media technologies.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="contact" class="section-padding container">
-            <div class="ios-glass card contact-box">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="tagline">A passionate filmmaker and designer with skills in developing static websites, poster editing.</p>
-                <div class="contact-details">
-                    <div>
-                        <i class="fa-solid fa-envelope"></i>
-                        <a href="mailto:mohdnazeemfahman@gmail.com">mohdnazeemfahman@gmail.com</a>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>Pulau Pinang, Malaysia</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <!-- High-End Contact Section -->
+    <section id="contact" class="contact-section reveal">
+        <h2 class="massive-text">LET'S<br>TALK.</h2>
+        <a href="mailto:hello@praestoproductions.com" class="email-link">mohdnazeemfahman@gmail.com</a>
+    </section>
 
     <footer>
-        <div class="container">
-            <p class="footer-name">Nazeem Fahman</p>
-            <ul class="footer-sections">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <p class="copyright">© 2025 Nazeem Fahman. All Rights Reserved.</p>
-        </div>
+        <p>© 2026 Nazeem Fahman. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
-    
 </body>
 </html>
