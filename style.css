@@ -133,12 +133,26 @@ nav {
     50% { opacity: 1; }
 }
 
-/* Edge-to-Edge Project Layout */
+/* 1. Remove the side padding from the main container */
 .featured-project {
-    padding: 15vh 5vw;
+    padding: 15vh 0; /* Changed from 15vh 5vw to 15vh 0 */
     display: flex;
     flex-direction: column;
     gap: 40px;
+}
+
+/* 2. Remove the rounded corners so it sits flush against the screen edges */
+.project-image {
+    width: 100%;
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0; /* Changed from 4px to 0 */
+}
+
+/* 3. ADD this new block to put the padding back strictly for the text */
+.project-details {
+    padding: 0 5vw; 
 }
 
 .project-image {
