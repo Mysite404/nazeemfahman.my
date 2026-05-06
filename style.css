@@ -69,6 +69,14 @@ nav {
     margin: 0;
 }
 
+.hero h4 {
+    font-size: clamp(20px, 12vw, 12rem); /* Scales hugely based on screen size */
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.04em; /* Tight tracking for that modern look */
+    margin: 0;
+}
+
 .hero p {
     margin-top: 30px;
     font-size: clamp(1.2rem, 2vw, 1.8rem);
