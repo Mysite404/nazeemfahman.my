@@ -51,54 +51,66 @@ nav {
     opacity: 0.6;
 }
 
-/* Massive Hero Section */
+/* =========================================
+   New Split Layout Hero Section
+   ========================================= */
 .hero {
-    height: 100vh;
+    /* 85vh instead of 100vh allows the next section to peek into the screen */
+    height: 85vh; 
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 5vw;
+    align-items: flex-end; /* Pushes content to the bottom of the section */
+    padding: 0 5vw 5vh; /* Padding sides and bottom */
     position: relative;
 }
 
-.hero h1 {
-    font-size: clamp(4rem, 12vw, 12rem); /* Scales hugely based on screen size */
+.hero-content {
+    display: flex;
+    justify-content: space-between; /* Name on left, description on right */
+    align-items: flex-end;
+    width: 100%;
+    gap: 40px;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 6vw, 6.5rem); /* Smaller than before, perfectly sized */
     font-weight: 800;
-    line-height: 0.9;
-    letter-spacing: -0.04em; /* Tight tracking for that modern look */
+    line-height: 1;
+    letter-spacing: -0.04em;
     margin: 0;
 }
 
-.hero h3 {
-    font-size: clamp(1rem, 12vw, 12rem); /* Scales hugely based on screen size */
-    font-weight: 800;
-    line-height: 0.9;
-    letter-spacing: -0.04em; /* Tight tracking for that modern look */
-    margin: 0;
+.hero-desc-container {
+    max-width: 450px; /* Keeps the text block tight and professional */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.hero p {
-    margin-top: 30px;
-    font-size: clamp(1.2rem, 2vw, 1.8rem);
-    color: var(--text-secondary);
-    max-width: 600px;
+.hero-description {
+    font-size: 0.95rem; /* Smaller, modern description font */
+    color: var(--text-primary);
+    line-height: 1.5;
     font-weight: 400;
 }
 
 .scroll-indicator {
-    position: absolute;
-    bottom: 40px;
-    left: 5vw;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     color: var(--text-secondary);
-    animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+/* Mobile Fix for New Hero Layout */
+@media screen and (max-width: 768px) {
+    .hero-content {
+        flex-direction: column; /* Stack them on small screens */
+        align-items: flex-start;
+        gap: 30px;
+    }
+    
+    .hero-desc-container {
+        max-width: 100%;
+    }
 }
 
 /* Edge-to-Edge Project Layout */
