@@ -44,3 +44,4 @@ form.addEventListener("submit", e => {
   location.href = `mailto:nazeem@example.com?subject=${subject}&body=${body}`;
   msg.textContent = "Opening your email app";
 });
+
