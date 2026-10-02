@@ -1,399 +1,208 @@
-/* Core Reset and Variables */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root{
+  --black:#050505;
+  --white:#f4f3ef;
+  --grey:#858585;
+  --darkgrey:#404040;
+  --line:rgba(255,255,255,.13);
+  --pink:#e40073;
+  --pinkBright:#ff2c91;
+  --max:1380px;
 }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:Manrope,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+::selection{background:var(--pink);color:white}
 
-:root {
-    --bg-color: #000000;
-    --text-primary: #f5f5f7; /* Apple's off-white */
-    --text-secondary: #86868b;
-}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:1000;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.mouse,.mouseDot{position:fixed;z-index:1100;pointer-events:none;transform:translate(-50%,-50%);border-radius:50%}
+.mouse{width:34px;height:34px;border:1px solid rgba(255,255,255,.55);transition:.25s}
+.mouseDot{width:5px;height:5px;background:var(--pink)}
+.mouse.active{width:70px;height:70px;background:var(--pink);border-color:var(--pink);mix-blend-mode:difference}
 
-body, html {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-primary);
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-}
+.header{position:fixed;top:0;left:0;width:100%;height:88px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;z-index:100;transition:.4s;border-bottom:1px solid transparent}
+.header.scrolled{background:rgba(5,5,5,.8);backdrop-filter:blur(18px);border-color:var(--line)}
+.logo{display:flex;align-items:center;gap:14px}
+.logo strong{font-size:23px;letter-spacing:-.08em}
+.logo strong span,.headerButton span,.contactForm button b,.projectTitle span,.projectTitle i,.pinkSection h2 span,.manifesto strong,.aboutText h2 span,.workHeader h2 span,.servicesHead h2 span,.experienceIntro h2 span,.statementTwo span,.contactCopy h2 span{color:var(--pink)}
+.logo small{font:9px "DM Mono";letter-spacing:.16em;color:#888}
+nav{display:flex;gap:34px;font:10px "DM Mono";letter-spacing:.12em;text-transform:uppercase}
+nav a{color:#999;transition:.2s}
+nav a:hover{color:white}
+.headerButton{font:10px "DM Mono";letter-spacing:.1em;border:1px solid var(--line);padding:13px 16px}
+.headerButton span{margin-left:14px}
+.menu{display:none;background:none;border:0}
+.menu i{display:block;width:28px;height:1px;background:white;margin:7px}
 
-/* Minimal Navigation */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 30px 5vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    mix-blend-mode: difference; /* Keeps nav visible over any background */
-}
+.hero{min-height:100svh;padding:140px 5vw 55px;position:relative;overflow:hidden}
+.heroTop{display:flex;justify-content:space-between;color:#666;font:9px "DM Mono";letter-spacing:.15em}
+.heroImages{position:absolute;inset:115px 6vw 40px;pointer-events:none}
+.heroCard{position:absolute;overflow:hidden;background:#111;border:1px solid rgba(255,255,255,.08);box-shadow:0 25px 70px rgba(0,0,0,.35)}
+.heroCard small{position:absolute;left:13px;bottom:11px;font:8px "DM Mono";letter-spacing:.15em;color:#aaa}
+.cardOne{width:22vw;height:27vw;right:12%;top:0;transform:rotate(3deg)}
+.cardTwo{width:17vw;height:22vw;left:6%;top:18%;transform:rotate(-4deg)}
+.cardThree{width:20vw;height:26vw;left:38%;top:2%;transform:rotate(1deg)}
+.cardFour{width:19vw;height:24vw;right:30%;top:38%;transform:rotate(-2deg)}
+.visual{width:100%;height:100%;transition:1s}
+.heroCard:hover .visual{transform:scale(1.08)}
+.visualOne{background:radial-gradient(circle at 62% 35%,#d6a487 0 10%,transparent 11%),linear-gradient(145deg,#191919,#806258 50%,#0a0a0a)}
+.visualTwo{background:linear-gradient(145deg,#b9b3a6,#38444a 40%,#0d0e0f 70%)}
+.visualThree{background:radial-gradient(circle at 50% 45%,#2828a9 0 11%,transparent 12%),linear-gradient(140deg,#171343,#171fc1 55%,#080808)}
+.visualFour{background:linear-gradient(125deg,#111,#655043 48%,#090909)}
+.heroContent{position:relative;z-index:3;max-width:1100px;margin:20vh auto 0}
+.kicker{font:9px "DM Mono";color:#777;letter-spacing:.18em;margin-bottom:18px}
+.hero h1{font-size:clamp(65px,10.8vw,158px);line-height:.77;letter-spacing:-.075em;text-transform:uppercase}
+.hero h1 em{font-style:normal}
+.heroBottom{display:flex;justify-content:space-between;align-items:end;margin-top:45px}
+.heroBottom>p{max-width:390px;color:#999;font-size:13px;line-height:1.75}
+.roundButton{width:105px;height:105px;border:1px solid #555;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;font:8px "DM Mono";letter-spacing:.12em;gap:9px}
+.roundButton b{color:var(--pink);font-size:18px}
+.scroll{position:absolute;bottom:28px;left:5vw;color:#555;font:8px "DM Mono";letter-spacing:.16em;display:flex;align-items:center;gap:13px}
+.scroll span{width:70px;height:1px;background:#333}
 
-.logo {
-    font-size: 1.2rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-}
+.manifesto{min-height:105vh;padding:15vh 9vw;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.manifestoLine{display:flex;gap:35px;align-items:flex-start}
+.manifestoLine small{font:9px "DM Mono";color:#555;margin-top:10px}
+.manifestoLine p{font-size:clamp(50px,8vw,120px);line-height:.8;letter-spacing:-.07em;font-weight:800}
+.manifestoLine.second{margin:13vh 0 0 15vw}
+.orbit{position:absolute;border:1px solid rgba(255,255,255,.08);border-radius:50%;display:grid;place-items:center;color:#555;font:8px "DM Mono";letter-spacing:.15em;text-align:center}
+.orbitA{width:240px;height:240px;right:7%;top:15%;animation:spin 18s linear infinite}
+.orbitB{width:180px;height:180px;left:5%;bottom:10%;animation:spin 14s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-.nav-links a {
-    color: var(--text-primary);
-    text-decoration: none;
-    margin-left: 40px;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: opacity 0.3s;
-}
+.pinkSection{background:var(--pink);min-height:55vh;padding:12vh 9vw;display:flex;align-items:center}
+.pinkInner p{font:9px "DM Mono";letter-spacing:.18em;margin-bottom:24px}
+.pinkSection h2{font-size:clamp(65px,10vw,145px);line-height:.78;letter-spacing:-.07em}
 
-.nav-links a:hover {
-    opacity: 0.6;
-}
+.section{max-width:var(--max);margin:auto;padding:150px 5vw}
+.label{font:9px "DM Mono";letter-spacing:.18em;color:#666}
+.aboutGrid{display:grid;grid-template-columns:1fr 1fr;gap:9vw;align-items:center;margin-top:80px}
+.cameraVisual{aspect-ratio:1;background:radial-gradient(circle at 50% 45%,#2726bd 0 9%,transparent 10%),linear-gradient(135deg,#181818,#070707);position:relative;display:grid;place-items:center;overflow:hidden}
+.cameraRing{position:absolute;width:74%;aspect-ratio:1;border:1px solid rgba(255,255,255,.18);border-radius:50%}
+.cameraShape{width:46%;height:33%;background:#080808;border:1px solid #333;position:relative;z-index:2}
+.cameraShape i{position:absolute;width:43%;aspect-ratio:1;border-radius:50%;left:29%;top:19%;background:radial-gradient(circle,#111 0 28%,#555 29% 32%,#0a0a0a 33% 100%);box-shadow:0 0 0 8px #202020}
+.cameraShape b{position:absolute;width:24%;height:12%;top:-11%;left:10%;background:#080808}
+.cameraVisual small{position:absolute;bottom:20px;left:22px;font:8px "DM Mono";color:#777;letter-spacing:.15em}
+.aboutText h2,.workHeader h2,.servicesHead h2,.experienceIntro h2,.contactCopy h2{font-size:clamp(52px,7vw,100px);line-height:.83;letter-spacing:-.065em}
+.aboutText>p:not(.kicker){max-width:520px;color:#888;font-size:13px;line-height:1.8;margin-top:30px}
+.signature{margin-top:38px;font:11px "DM Mono";letter-spacing:.16em}
 
-/* Massive Hero Section */
-/* =========================================
-   New Split Layout Hero Section
-   ========================================= */
-.hero {
-    /* 85vh instead of 100vh allows the next section to peek into the screen */
-    height: 85vh; 
-    display: flex;
-    align-items: flex-end; /* Pushes content to the bottom of the section */
-    padding: 0 5vw 5vh; /* Padding sides and bottom */
-    position: relative;
-}
+.work{border-top:1px solid var(--line)}
+.workHeader{display:flex;justify-content:space-between;align-items:end;gap:50px;margin-bottom:75px}
+.workHeader>p{max-width:300px;color:#777;font-size:12px;line-height:1.7}
+.projects{display:grid;grid-template-columns:1.35fr .65fr;gap:85px 34px}
+.projectLarge{grid-row:span 2}
+.projectWide{grid-column:1/-1}
+.projectVisual{position:relative;overflow:hidden;background:#111;aspect-ratio:1/1.08}
+.projectLarge .projectVisual{aspect-ratio:.86/1}
+.projectWide .projectVisual{aspect-ratio:2.3/1}
+.projectVisual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.7))}
+.projectVisual .number,.projectVisual .type{position:absolute;z-index:2;top:17px;font:8px "DM Mono";letter-spacing:.15em;color:#aaa}
+.projectVisual .number{left:17px}
+.projectVisual .type{right:17px}
+.projectTitle{position:absolute;z-index:2;inset:0;display:grid;place-items:center;text-align:center;font-size:clamp(40px,7vw,100px);font-weight:800;line-height:.76;letter-spacing:-.08em}
+.silat{background:radial-gradient(circle at 74% 32%,#d3a56e 0 12%,transparent 13%),linear-gradient(145deg,#151515,#493325 48%,#080808)}
+.harraz{background:linear-gradient(145deg,#152128,#8a6d5a 52%,#111)}
+.rtm{background:radial-gradient(circle at 40% 45%,#404bd8 0 8%,transparent 9%),linear-gradient(140deg,#101017,#222a72 52%,#090909)}
+.women{background:linear-gradient(125deg,#111,#68113e 52%,#090909)}
+.posters{background:linear-gradient(135deg,#101010,#244346 48%,#080808)}
+.posterStack{position:absolute;inset:0;z-index:2;display:grid;place-items:center;transform:rotate(-3deg)}
+.posterStack b,.posterStack i{font-size:clamp(70px,12vw,170px);line-height:.7;letter-spacing:-.09em}
+.posterStack i{font-style:normal;color:var(--pink);margin-left:16vw}
+.projectMeta{display:flex;justify-content:space-between;padding-top:18px}
+.projectMeta h3{font-size:16px}
+.projectMeta p,.projectMeta>span{font:9px "DM Mono";color:#777;margin-top:6px}
+.projectDesc{max-width:450px;color:#777;font-size:11px;line-height:1.7;margin-top:17px}
 
-.hero-content {
-    display: flex;
-    justify-content: space-between; /* Name on left, description on right */
-    align-items: flex-end;
-    width: 100%;
-    gap: 40px;
-}
+.services{border-top:1px solid var(--line)}
+.servicesHead{display:flex;justify-content:space-between;align-items:end;gap:40px;margin:75px 0 95px}
+.servicesHead>p{max-width:310px;color:#777;font-size:12px;line-height:1.7}
+.service{display:grid;grid-template-columns:70px 1fr 1fr 30px;gap:20px;align-items:center;padding:28px 0;border-top:1px solid var(--line);transition:.3s}
+.service:last-child{border-bottom:1px solid var(--line)}
+.service small{font:9px "DM Mono";color:#555}
+.service h3{font-size:23px;letter-spacing:-.04em}
+.service p{font-size:11px;color:#777;line-height:1.6}
+.service b{font-size:20px;color:var(--pink);font-weight:400}
+.service:hover{padding-left:18px;background:linear-gradient(90deg,rgba(228,0,115,.07),transparent)}
 
-.hero-title {
-    font-size: clamp(3rem, 6vw, 6.5rem); /* Smaller than before, perfectly sized */
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.04em;
-    margin: 0;
-}
+.experience{border-top:1px solid var(--line)}
+.experienceGrid{display:grid;grid-template-columns:1fr 1fr;gap:10vw;margin-top:80px}
+.experienceIntro h2{margin-top:10px}
+.experienceIntro>p:last-child{max-width:390px;color:#777;font-size:13px;line-height:1.7;margin-top:30px}
+.experienceList{border-top:1px solid var(--line)}
+.experienceItem{display:grid;grid-template-columns:35px 1fr auto;gap:18px;padding:24px 0;border-bottom:1px solid var(--line)}
+.experienceItem>span,.experienceItem>small{font:8px "DM Mono";color:#555}
+.experienceItem strong{font-size:15px}
+.experienceItem p{font-size:10px;color:#777;line-height:1.6;margin-top:6px}
 
-.hero-desc-container {
-    max-width: 450px; /* Keeps the text block tight and professional */
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+.statementTwo{min-height:75vh;padding:13vh 9vw;display:flex;flex-direction:column;justify-content:center}
+.statementTwo p{font:9px "DM Mono";letter-spacing:.18em;color:#666;margin-bottom:25px}
+.statementTwo h2{font-size:clamp(60px,10vw,145px);line-height:.78;letter-spacing:-.07em}
 
-.hero-description {
-    font-size: 0.95rem; /* Smaller, modern description font */
-    color: var(--text-primary);
-    line-height: 1.5;
-    font-weight: 400;
-}
+.contact{border-top:1px solid var(--line)}
+.contactGrid{display:grid;grid-template-columns:1fr 1fr;gap:9vw;margin-top:80px}
+.contactCopy>p:last-child{max-width:390px;color:#777;font-size:13px;line-height:1.7;margin-top:30px}
+.contactForm{display:grid;gap:25px}
+.contactForm label{border-bottom:1px solid #333;padding-bottom:12px}
+.contactForm label span{display:block;font:8px "DM Mono";color:#666;letter-spacing:.15em;margin-bottom:8px}
+.contactForm input,.contactForm textarea{width:100%;border:0;outline:0;background:transparent;color:white;font-size:14px;resize:vertical}
+.contactForm input::placeholder,.contactForm textarea::placeholder{color:#3d3d3d}
+.contactForm button{border:1px solid var(--pink);background:var(--pink);color:white;padding:16px 18px;text-align:left;font:10px "DM Mono";letter-spacing:.12em;cursor:pointer}
+.contactForm button b{float:right;font-size:17px}
+#formMessage{font:9px "DM Mono";color:#777;min-height:12px}
 
-.scroll-indicator {
-    /* REMOVE position: absolute, left, and bottom if they are there! */
-    position: absolute, left; 
-    margin-top: 20px; /* Adds a little breathing room above it */
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-secondary);
-    animation: pulse 2s infinite; /* Keeps that nice fading animation */
-}
+footer{border-top:1px solid var(--line);padding:35px 5vw 28px}
+.footerTop,.footerBottom{display:flex;justify-content:space-between;gap:20px}
+.footerTop{font:8px "DM Mono";letter-spacing:.15em;color:#666}
+.footerTop strong{color:white;font-size:11px}
+.footerTop strong span{color:var(--pink)}
+.footerBottom{margin-top:80px;font:8px "DM Mono";color:#555}
+.footerBottom div{display:flex;gap:25px}
+.footerBottom a:hover{color:white}
 
-/* Mobile Fix for New Hero Layout */
-@media screen and (max-width: 768px) {
-    .hero-content {
-        flex-direction: column; /* Stack them on small screens */
-        align-items: flex-start;
-        gap: 30px;
-    }
-    
-    .hero-desc-container {
-        max-width: 100%;
-    }
-}
-.scroll-indicator {
-    position: absolute;
-    bottom: 40px;
-    left: 5vw;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-secondary);
-    animation: pulse 2s infinite;
-}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
 
-@keyframes pulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
-}
-
-/* 1. Remove the side padding from the main container */
-.featured-project {
-    padding: 15vh 0; /* Changed from 15vh 5vw to 15vh 0 */
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-/* 2. Remove the rounded corners so it sits flush against the screen edges */
-.project-image {
-    aspect-ratio: 16 / 9; /* This perfectly frames film stills! */
-    max-height: 85vh; /* Prevents the image from getting too massive on huge desktop monitors */
-    
-    background-size: cover;
-    background-position: center;
-    border-radius: 0;
-}
-
-/* 3. ADD this new block to put the padding back strictly for the text */
-.project-details {
-    padding: 0 5vw; 
-}
-
-.project-image {
-    width: 100%;
-    height: 70vh;
-    background-size: cover;
-    background-position: center;
-    border-radius: 4px;
-}
-
-.project-details h2 {
-    font-size: clamp(3rem, 6vw, 6rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    margin-bottom: 15px;
-}
-
-.project-meta {
-    display: flex;
-    gap: 20px;
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.view-btn {
-    display: inline-block;
-    padding: 18px 40px;
-    border: 1px solid var(--text-primary);
-    color: var(--text-primary);
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 50px; /* Pill shape is very modern */
-    transition: all 0.3s ease;
-}
-
-.view-btn:hover {
-    background-color: var(--text-primary);
-    color: var(--bg-color);
-}
-
-/* Contact Section */
-.contact-section {
-    padding: 20vh 5vw;
-    text-align: center;
-}
-
-.massive-text {
-    font-size: clamp(5rem, 15vw, 15rem);
-    font-weight: 800;
-    line-height: 0.85;
-    letter-spacing: -0.05em;
-    margin-bottom: 40px;
-}
-
-.email-link {
-    font-size: clamp(1.5rem, 3vw, 3rem);
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.email-link:hover {
-    color: var(--text-primary);
-}
-
-footer {
-    text-align: center;
-    padding: 40px;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-/* Scroll Reveal Animation Classes */
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); /* Premium easing curve */
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* =========================================
-   Modern Footer Styles
-   ========================================= */
-.modern-footer {
-    padding: 10vh 5vw 5vh; /* Responsive padding */
-    background-color: var(--bg-color);
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Very subtle top line */
-}
-
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 100px;
-}
-
-.footer-brand h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin: 0;
-}
-
-.footer-links {
-    display: flex;
-    gap: 120px; /* Space between Sitemap and Social columns */
-}
-
-.footer-column h4 {
-    color: var(--text-secondary); /* Uses the gray variable */
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.footer-column a {
-    color: var(--text-primary);
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.footer-column a:hover {
-    color: var(--text-secondary);
-}
-
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--text-secondary);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-/* Mobile Responsiveness for the Footer */
-@media screen and (max-width: 768px) {
-    .footer-top {
-        flex-direction: column;
-        gap: 60px;
-    }
-    
-    .footer-links {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-        margin-top: 40px;
-    }
-}
-
-/* =========================================
-   About Page Specific Styles
-   ========================================= */
-
-/* Hero Text Section */
-.about-hero {
-    padding: 25vh 5vw 10vh; /* Pushes text down nicely from nav */
-    max-width: 1400px;
-}
-
-.about-statement {
-    /* Changed from clamp(2.5rem, 5vw, 5.5rem) to smaller values */
-    font-size: clamp(1.5rem, 3vw, 3.5rem); 
-    font-weight: 600; /* Dropped from 700 to 600 so it feels less heavy */
-    line-height: 1.3; /* Increased line height slightly for readability at smaller sizes */
-    letter-spacing: -0.02em;
-    color: var(--text-primary);
-    margin: 0;
-    max-width: 900px; /* Added this to keep the text from stretching too wide on big screens */
-}
-
-/* Auto-Sliding Image Marquee */
-.image-marquee {
-    width: 100%;
-    overflow: hidden;
-    padding: 5vh 0 10vh 0; /* Space above and below slider */
-    background: var(--bg-color);
-}
-
-.marquee-track {
-    display: flex;
-    gap: 30px;
-    width: max-content;
-    /* 30s is the speed. Lower = faster, Higher = slower */
-    animation: scroll-marquee 30s linear infinite; 
-}
-
-.marquee-image {
-    width: 400px;
-    height: 500px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 4px; /* Slight rounding for a premium feel */
-    flex-shrink: 0; /* Prevents images from squishing */
-}
-
-/* Hover effect to pause the slider so people can look at photos */
-
-
-/* The Animation Keyframes */
-@keyframes scroll-marquee {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* Scrolls exactly half the width (which is one full set of images + gaps) */
-        transform: translateX(calc(-50% - 15px)); 
-    }
-}
-
-/* Mobile Adjustments for Slider */
-@media screen and (max-width: 768px) {
-    .marquee-image {
-        width: 250px;
-        height: 350px;
-    }
+@media(max-width:800px){
+  .mouse,.mouseDot{display:none}
+  .header{height:72px;padding:0 20px}
+  nav,.headerButton{display:none}
+  .menu{display:block}
+  .hero{padding:115px 20px 55px;min-height:850px}
+  .heroImages{inset:125px 5px 90px}
+  .cardOne{width:40vw;height:48vw;right:2%}
+  .cardTwo{width:33vw;height:43vw;left:0;top:30%}
+  .cardThree{width:39vw;height:50vw;left:30%;top:13%}
+  .cardFour{width:37vw;height:46vw;right:4%;top:50%}
+  .heroContent{margin-top:22vh}
+  .hero h1{font-size:17vw}
+  .heroBottom{display:block;margin-top:30px}
+  .heroBottom>p{max-width:290px}
+  .roundButton{width:86px;height:86px;margin:28px 0 0 auto}
+  .manifesto{min-height:850px;padding:100px 20px}
+  .manifestoLine{display:block}
+  .manifestoLine small{display:block;margin-bottom:16px}
+  .manifestoLine p{font-size:14vw}
+  .manifestoLine.second{margin:105px 0 0}
+  .orbitA{right:-90px;top:7%}
+  .orbitB{left:-80px;bottom:7%}
+  .pinkSection{min-height:400px;padding:80px 20px}
+  .pinkSection h2{font-size:18vw}
+  .section{padding:90px 20px}
+  .aboutGrid,.experienceGrid,.contactGrid{grid-template-columns:1fr;gap:55px;margin-top:55px}
+  .aboutText h2,.workHeader h2,.servicesHead h2,.experienceIntro h2,.contactCopy h2{font-size:15vw}
+  .workHeader,.servicesHead{display:block;margin-bottom:55px}
+  .workHeader>p,.servicesHead>p{margin-top:28px}
+  .projects{grid-template-columns:1fr;gap:65px}
+  .projectLarge{grid-row:auto}
+  .projectWide{grid-column:auto}
+  .projectWide .projectVisual{aspect-ratio:1/.8}
+  .service{grid-template-columns:35px 1fr 20px}
+  .service p{grid-column:2}
+  .service b{grid-column:3;grid-row:1}
+  .statementTwo{min-height:500px;padding:90px 20px}
+  .statementTwo h2{font-size:18vw}
+  .footerTop,.footerBottom{flex-direction:column}
+  .footerBottom{margin-top:50px}
 }
